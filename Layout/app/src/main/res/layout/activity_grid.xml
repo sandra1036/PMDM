@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    tools:context=".Grid">
+ <TableLayout>
+     <TableRow>
+    <AnalogClock
+        android:id="@+id/reloj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+    <CheckBox
+        android:id="@+id/checkPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ChekBox de prueba"
+        android:layout_below="@+id/reloj"
+        tools:ignore="MissingConstraints" />
+     </TableRow>
+     <TableRow>
+    <Button
+        android:id="@+id/botonPrueba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Boton Prueba"
+        android:layout_alignParentRight="true"
+        tools:ignore="MissingConstraints" />
+     </TableRow>
+
+    <TextView
+        android:id="@+id/etiquetaPrueba"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Etiqueta de prueba."
+        android:layout_alignParentBottom="true"
+        tools:ignore="MissingConstraints" />
+
+   </TableLayout>
+</GridLayout>
