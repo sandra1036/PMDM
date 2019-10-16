@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+< LinerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+<TextView android:id="@+id/nombreT"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Nombre: "
+    android:textSize="20dp"/>
+
+<EditText android:id="@+id/edittext"
+    android:layout_width="250dp"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="20dp"
+    android:layout_marginTop="10dp"/>
+
+<TextView android:id="@+id/apellidosT"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Apellido:"
+    android:textSize="20dp"/>
+
+    <EditText android:id="@+id/edittext2"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView android:id="@+id/edadT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad:"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/edittext3"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:singleLine="false" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/persona"
+        android:layout_width="192dp"
+        android:layout_height="231dp" />
+    <ImageView
+        android:id=""
+        android:layout_width="192dp"
+        android:layout_height="231dp" />
+    <ImageView
+        android:id=""
+        android:layout_width="192dp"
+        android:layout_height="231dp" />
+    <ImageView
+        android:id=""
+        android:layout_width="192dp"
+        android:layout_height="231dp" />
+    <ImageView
+        android:id=""
+        android:layout_width="192dp"
+        android:layout_height="231dp" />
+    <ImageView
+        android:id=""
+        android:layout_width="192dp"
+        android:layout_height="231dp" />
+    </GridLayout>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:text="Click"/>
+
+</LinearLayout>
