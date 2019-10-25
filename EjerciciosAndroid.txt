@@ -1,0 +1,10 @@
+Una aplicación que hagas una spinner de autores y sus fotos clickas y se salga una lista que te salgan sus libros, cuanto valen, fotos o tambien dentro de las listas un radiobutton si lo quieres con tapa blanda o tapa dura y un checkbox para saber si es para regalo o no .
+
+Una lista o un spinner con la semanas,meses,años y cuando le das salga otra lista con los días de la semana, los meses o año.(se pueden poner tambien con ciclos y le das y te salgan las asignaturas)*Una pantalla*
+
+
+
+
+
+
+
