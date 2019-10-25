@@ -1,0 +1,226 @@
+Ayuda con el código de ListView y Spinner
+
+
+1.- Implementar una lista simple
+a)Dentro de tu fichero activity_main.xml se colocará
+
+ <ListView
+        android:layout_height="wrap_content"
+        android:id="@+id/listView1"
+        android:layout_width="match_parent">
+    </ListView>
+
+b) Su lógica de aplicación será
+
+public class .......... extends AppCompatActivity {
+
+    ListView lview;
+    final static String semana[] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+
+ public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_lista_simple);
+
+        String mensaje;
+        lview = (ListView) findViewById(R.id.............);
+
+        ArrayAdapter<String> miAdaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, semana);
+        lview.setAdapter(miAdaptador);
+}// del onCreate
+        
+}// de la clase
+
+c) Ahora añadimos el Evento al que reponde un objeto ListView. Incluimos dentro del onCreate el escuchador del evento (OnItemClickListener) y creamos lapor clase anónima
+
+lview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+  public void onItemClick(AdapterView arg0, View arg1, int position, long id) {
+       String mensaje="";
+       mensaje="Item clicked => " + semana[position];
+       showToast(mensaje);
+
+      }
+ });
+
+2- Implementar un Spinner Simple
+a)Dentro de tu fichero activity_main.xml se colocará
+  <Spinner
+        android:id="@+id/spinner1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </Spinner>
+
+b) Su clase java asociada tendrá
+public class ..... extends Activity {
+
+    Spinner miSpinner;
+    final static String semana[] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout..................);
+
+        String mensaje;
+        miSpinner = (Spinner) findViewById(R.id........);
+        ArrayAdapter<String> miAdaptador = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, semana);
+      
+       miAdaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); /* MIRAR BIEN( es diferente al ListaView) */
+        miSpinner.setAdapter(miAdaptador);
+        miSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { 
+/*evento distinto al ListView */
+     public void onItemSelected(AdapterView arg0, View arg1, int position, long id) {
+             String mensaje = "";
+             mensaje = "Item clicked => " + semana[position];
+             showToast(mensaje);
+
+        }
+          @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                
+            }
+        });
+    }
+    public void showToast(String text) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+    }
+}
+
+3.- OTRAS POSIBILIDADES ( tomando entradas desdelos archivos XML)
+Cuando las opciones están dadas directamente en el fichero XML
+a)Dentro de tu fichero activity_main.xml se colocará
+
+<ListView
+        android:id="@+id/lista1"
+        android:layout_below="@+id/etiqueta"
+        android:prompt="@string/lista1_prompt"
+        android:entries="@array/lista1_entries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+b)Es necesario definir las opciones en el fichero value/strings.xml
+
+<string name="lista1_prompt">
+      Vendedores de Android (Elección DESDE XML)
+     </string>
+    <string-array name="lista1_entries">
+        <item>Acer</item>
+        <item>Dell</item>
+        <item>HTC</item>
+        <item>Huawei</item>
+        <item>Kyocera</item>
+        <item>LG</item>
+        <item>Motorola</item>
+        <item>Nexus</item>
+        <item>Samsung</item>
+        <item>Sony Ericsson</item>
+        <item>T-Mobile</item>
+        <item>Neptune</item>
+    </string-array>
+c) Su lógica de aplicación será:
+
+public class ........extends AppCompatActivity {
+    ListView lview;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_lista1);
+
+         lview = (ListView) findViewById(R.id.lista1);
+         lview.setOnItemClickListener(new ListaInfo());
+
+    }
+    private void showToast(String text) {
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+    }
+
+    private class ListaInfo implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> lista, View selectedView,
+                                int selectedIndex, long id) {
+            String selection =
+                        lista.getItemAtPosition(selectedIndex).toString();
+            showToast(selection);
+        }
+
+        public void onNothingSelected(AdapterView<?> lista) {
+            // Cuando NO HAY entradas en la lista
+        }
+    } //clase interna
+} //clase general
+
+
+4.- IMPLEMENTAR LISTA con la CLaseTitular
+a) activity_main.xml
+    <ListView
+        android:id="@+id/ListTitular"
+        android:layout_below="@+id/etiqueta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+b)Crear el fichero listitem_titular.xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView android:id="@+id/LblTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="20px" />
+        <TextView android:id="@+id/LblSubTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="20px" />
+
+</LinearLayout>
+
+c) lógica de aplicación en la clse Java
+public class ..................... extends AppCompatActivity {
+
+    private Titular[] datos =
+            new Titular[]{
+                    new Titular("Título 1", "Subtítulo largo 1"),
+
+......................................,
+......................................,
+ };
+
+    ListView miLista;
+
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_lista_titulares);
+
+        String mensaje;
+        miLista = (ListView) findViewById(R.id.ListTitular);
+
+        AdaptadorTitulares adaptador = new AdaptadorTitulares(this);
+        miLista.setAdapter(adaptador);
+    }
+
+    class AdaptadorTitulares extends ArrayAdapter {
+        Activity context;
+
+        AdaptadorTitulares(Activity context) {
+            super(context, R.layout.listitem_titular, datos);
+            this.context = context;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = context.getLayoutInflater();
+            View item = inflater.inflate(R.layout.listitem_titular, null);
+            TextView lblTitulo = (TextView) item.findViewById(R.id.LblTitulo);
+            lblTitulo.setText(datos[position].getTitulo());
+            TextView lblSubtitulo = (TextView) item.findViewById(R.id.LblSubTitulo);
+            lblSubtitulo.setText(datos[position].getSubtitulo());
+            return (item);
+        }
+    }
+
+}
+
+
+
+
+
+
