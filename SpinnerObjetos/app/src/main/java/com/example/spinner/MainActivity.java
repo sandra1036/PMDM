@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public Spinner spinner;
+
     private Persona[] personas={
             new Persona("Úrsula","Yelmo"),
             new Persona("Pablo","Hernandez"),
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
         AdaptadorPersona adaptadorPersona=new AdaptadorPersona(MainActivity.this);
         spinner.setAdapter(adaptadorPersona);
+
+        final ImageView imageView=(ImageView)findViewById(R.id.foto);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -75,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
             TextView textApellido=(TextView)item.findViewById(R.id.apellidos);
             textApellido.setText(personas[i].getApellido());
+
+
 
             return item;
         }

@@ -1,5 +1,7 @@
 package com.example.spinner;
 
+import android.widget.ImageView;
+
 import java.io.Serializable;
 
 /**
@@ -8,19 +10,22 @@ import java.io.Serializable;
 public class Persona implements Serializable {
     private String nombre;
     private String apellido;
+    private int foto;
 
 
-    Persona (String nombre,String apellido){
+    Persona (String nombre, String apellido){
         this.nombre=nombre;
         this.apellido=apellido;
 
     }
-
     public String getNombre (){
         return nombre;
     }
     public String getApellido(){
         return apellido;
+    }
+    public int getFoto(){
+        return foto;
     }
 
 
@@ -30,6 +35,7 @@ public class Persona implements Serializable {
     public void setApellido(String nuevoApe){
         apellido= nuevoApe;
     }
+
 
     public String toString(){
         String cad="";
