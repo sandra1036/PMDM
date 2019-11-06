@@ -3,6 +3,11 @@ Una aplicación que hagas una spinner de autores y sus fotos clickas y se salga 
 Una lista o un spinner con la semanas,meses,años y cuando le das salga otra lista con los días de la semana, los meses o año.(se pueden poner tambien con ciclos y le das y te salgan las asignaturas)*Una pantalla*
 
 
+Ejercicio de las areas:
+Un spinner donde tu propongas elige figura-> circulo,rectangulo y triangulo, coges el dato que necesito para calcular el area y lo dibujas, pantalla 2.
+
+
+
 
 
 
