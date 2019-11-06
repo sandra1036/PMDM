@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
             new Ciclos("DAM","2")
     };
     public static ListaAsignaturas[]listaAsignaturas=new ListaAsignaturas[]{
-            new ListaAsignaturas("SI",);
-            new ListaAsignaturas("AD","DIN","SGE","EIAS",);
-    }
+            new ListaAsignaturas("SI","DA","LMI"," "," "," "),
+            new ListaAsignaturas("AD","DIN","SGE","EIAS"," "," ")
+    };
 
 
 
