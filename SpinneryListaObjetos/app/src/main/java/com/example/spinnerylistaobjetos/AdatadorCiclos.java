@@ -9,11 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 public class AdatadorCiclos extends ArrayAdapter<Ciclos> {
-    public Activity actividad;
+    Activity actividad;
 
-    public AdatadorCiclos(Activity activity){
-        super(activity,R.layout.desplegable,MainActivity.ciclos);
-        this.actividad=activity;
+    public AdatadorCiclos(Activity actividad){
+        super(actividad,R.layout.desplegable,MainActivity.ciclos);
+        this.actividad=actividad;
     }
     public View getDropDownView(int posicion, View view, ViewGroup viewGroup){
 
@@ -22,20 +22,19 @@ public class AdatadorCiclos extends ArrayAdapter<Ciclos> {
 
     }
     public View getView(int posicion,View view,ViewGroup viewGroup){
+
         LayoutInflater inflater=actividad.getLayoutInflater();
         View item=inflater.inflate(R.layout.desplegable,null);
 
-        MainActivity.textViewN.setText(MainActivity.ciclos[posicion].getNombre());
-        MainActivity.textViewC.setText(MainActivity.ciclos[posicion].getCurso());
+        TextView textViewN=(TextView)item.findViewById(R.id.nombre);
+        textViewN.setText(MainActivity.ciclos[posicion].getNombre());
+
+//        TextView textViewC=(TextView)item.findViewById(R.id.curso);
+//        textViewN.setText(MainActivity.ciclos[posicion].getCurso());
+
+
 
 
         return  item;
     }
-
-
-
-
-
-
-
 }
