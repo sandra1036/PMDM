@@ -43,14 +43,37 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adatadorCiclos);
         final ListView listView=(ListView)findViewById(R.id.list);
 
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView arg0, View arg1, int position, long id) {
-                String mensaje="";
-                mensaje="=> Nombre del curso: "+ciclos[position].getNombre()+"Curso:"+ciclos[position].getCurso();
-                Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
+                String mensaje = "";
+                mensaje = "=> Nombre del curso: " + ciclos[position].getNombre() + "Curso:" + ciclos[position].getCurso();
+                Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT).show();
 
+                AdaptadorLista adaptadorLista = new AdaptadorLista(MainActivity.this);
+                listView.setAdapter(adaptadorLista);
+
+                TextView textA1 = (TextView) findViewById(R.id.asignatura1);
+                textA1.setText(listaAsignaturas[position].getAsignatura());
+
+                TextView textA2 = (TextView) findViewById(R.id.asignatura2);
+                textA2.setText(listaAsignaturas[position].getAsignatura2());
+
+                TextView textA3 = (TextView) findViewById(R.id.asignatura3);
+                textA3.setText(listaAsignaturas[position].getAsignatura3());
+
+                TextView textA4 = (TextView) findViewById(R.id.asignatura4);
+                textA4.setText(listaAsignaturas[position].getAsignatura4());
+
+
+                TextView textA5 = (TextView) findViewById(R.id.asignatura5);
+                textA5.setText(listaAsignaturas[position].getAsignatura5());
+
+                TextView textA6 = (TextView) findViewById(R.id.asignatura6);
+                textA6.setText(listaAsignaturas[position].getAsignatura6());
             }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -58,6 +81,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }
