@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 </TableRow>
  <TableRow>
-    <Spinner android:id="@+id/Zona"
+    <Spinner android:id="@+id/szona"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
