@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Dibujo:Mi Logo" android:id="@+id/dibujo"></item>
+    <item android:title="Ayuda de la aplicacion" android:id="@+id/ayuda"></item>
+    <item android:title="copyRight" android:id="@+id/copy"></item>
+
+</menu>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout>
+        <TextView
+            android:id="@+id/pruebas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="24dp"
+            android:textColor="#FFAAF1"
+            android:textStyle="bold"
+            android:text="ALQUILER\nMEDIOS MOVIDIDAD" />
+        <ImageView
+            android:id="@+id/imagenTitulo"
+            android:layout_marginTop="15dp"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/movilidad" />
+    </LinearLayout>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner android:id="@+id/spinner"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:id="@+id/grup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tarifa Normal">
+
+            <RadioButton
+                android:id="@+id/seguro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sin seguro" />
+
+            <RadioButton
+                android:id="@+id/conseguro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seguro Completo" />
+
+        </RadioGroup>
+    </TableRow>
+    <LinearLayout>
+
+        <CheckBox
+            android:id="@+id/checkguantes"
+            android:layout_width="162dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text=" Casco/Guantes" />
+
+        <CheckBox
+            android:id="@+id/checkboxgps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Incluye GPS" />
+
+
+
+        <CheckBox
+            android:id="@+id/checkboxextras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Extras" />
+
+
+    </LinearLayout>
+    <TableRow>
+        <EditText android:id="@+id/entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Dias"/>
+
+        <TextView android:id="@+id/numpre"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+
+
+    </TableRow>
+
+    <Button android:id="@+id/totalprecio"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Total Precio"/>
+
+
+
+    <Button android:id="@+id/factura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Factura"/>
+
+</TableLayout>
