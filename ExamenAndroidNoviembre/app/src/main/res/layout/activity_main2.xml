@@ -60,14 +60,13 @@
             android:id="@+id/checkguantes"
             android:layout_width="162dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+
             android:text=" Casco/Guantes" />
 
         <CheckBox
             android:id="@+id/checkboxgps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="Incluye GPS" />
 
 
@@ -76,7 +75,6 @@
             android:id="@+id/checkboxextras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:text="Extras" />
 
 

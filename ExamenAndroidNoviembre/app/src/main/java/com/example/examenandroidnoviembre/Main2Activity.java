@@ -42,6 +42,9 @@ public class Main2Activity extends AppCompatActivity {
         buttonTotal=(Button)findViewById(R.id.totalprecio);
         textViewtotal=(TextView)findViewById(R.id.numpre);
 
+        //Se crea un Adaptador para objeto
+
+
         AdaptadorTransporteBici adaptadorTransporteBici = new AdaptadorTransporteBici(Main2Activity.this);
         spn.setAdapter(adaptadorTransporteBici);
 
@@ -52,23 +55,23 @@ public class Main2Activity extends AppCompatActivity {
         AdaptadorTransporteCoches adaptadorTransporteCoches = new AdaptadorTransporteCoches(Main2Activity.this);
         spn.setAdapter(adaptadorTransporteCoches);
 
-        textViewPre = Double.parseDouble(String.valueOf(R.id.precio));
+        textViewPre=Double.parseDouble(String.valueOf(textViewPre));
 
         Reradio(textViewPre);
         ReCheckBox(textViewPre);
-
         editText.getText();
 
 
         buttonTotal.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
-
+                textViewtotal.setText((int) textViewPre);
             }
+
         });
-
-
+        
     }
 
     public double ReCheckBox(double precio){
@@ -94,11 +97,12 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
-                if (group.getCheckedRadioButtonId() == R.id.seguro) {
-                    
+                if (group.getCheckedRadioButtonId() == R.id.conseguro) {
+
+                    textViewPre *=0.2;
 
                 } else {
-
+                    textViewPre=precio;
                 }
             }
         });
@@ -113,6 +117,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
+
         switch (menuItem.getItemId()) {
             case R.id.dibujo:
                 Toast.makeText(getApplicationContext(), "Has pulsado Dibujo", Toast.LENGTH_SHORT).show();
