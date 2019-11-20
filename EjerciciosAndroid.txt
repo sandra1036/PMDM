@@ -10,6 +10,7 @@ Un circulo en el medio y 4 cuadrados a los lados
 Ejercicio de las areas:
 Un spinner donde tu propongas elige figura-> circulo,rectangulo y triangulo, coges el dato que necesito para calcular el area y lo dibujas, pantalla 2.
 
+Mejora exámen -> en el momento que dibujabamos, en lugar de una imagen tendremos que utilizar RandomUtils
 
 
 
