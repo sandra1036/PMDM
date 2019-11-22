@@ -9,10 +9,11 @@
         android:onClick="redraw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/app_name" />
+        android:text="Label" />
     <view
         class="com.example.figurasaleatorias.RandomShapeView"
-        android:id="@+id/drawing_area"
+        android:id="@+id/Area"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
+
