@@ -79,7 +79,7 @@
     <ImageView android:id="@+id/image7"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:src="@drawable/tren1"
+
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,6 +111,13 @@
 
 
     </TableRow>
+    <TableRow>
+
+        <ImageView android:id="@+id/result"
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
+
+    </TableRow>
  </TableLayout>
 
-</GridLayout>
+  </GridLayout>
