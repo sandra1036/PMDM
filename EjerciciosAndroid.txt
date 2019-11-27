@@ -12,7 +12,7 @@ Un spinner donde tu propongas elige figura-> circulo,rectangulo y triangulo, cog
 
 Mejora exámen -> en el momento que dibujabamos, en lugar de una imagen tendremos que utilizar RandomUtils
 
-
+Ejercico con la tortuga y la libre,tiene que llegar al final -> con AsyncTask, con sleep o con MathRandom -> nunca sabes quien va a ganar
 
 
 
