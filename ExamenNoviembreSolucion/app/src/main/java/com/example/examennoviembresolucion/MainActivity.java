@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
     public static ImageView imageresul;
     private Button btn;
 
+    private int transporte[]={R.drawable.patinete,R.drawable.bicis,R.drawable.coches};
+
+    public static MedioTransporte[]seleccionado;
 
     public static MedioTransporte[] electricos = new MedioTransporte[]{
             new MedioTransporte("skate", "Roxi", "12", R.drawable.skate),
@@ -48,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Ha entrado en el onclick ", Toast.LENGTH_SHORT).show();
-                imageresul.setImageResource(R.drawable.patinete);
+                seleccionado=electricos;
+                imageresul.setImageResource(transporte[0]);
 
 
             }
@@ -58,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Ha entrado", Toast.LENGTH_SHORT).show();
-                imageresul.setImageResource(R.drawable.bicis);
+                seleccionado=bicis;
+                imageresul.setImageResource(transporte[1]);
             }
         });
 
@@ -67,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Ha entrado Coche", Toast.LENGTH_SHORT).show();
-                imageresul.setImageResource(R.drawable.coches);
+                seleccionado=coches;
+                imageresul.setImageResource(transporte[2]);
             }
         });
 
@@ -76,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                Bundle bundle = new Bundle("");
-                intent.getSerializableExtra("clave");
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("clave",seleccionado);
+                intent.putExtras(bundle);
                 startActivity(intent);
 
 
@@ -85,4 +92,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }
