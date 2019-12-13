@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:padding="4dip"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TableRow>
+    <Button android:id="@+id/newFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nuevo Fragment"/>
+    </TableRow>
+    <TableRow>
+    <fragment android:name="com.example.fragmentosdinamicos.Fragment1"
+        android:id="@+id/fragmentShow"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+    </fragment>
+    <fragment android:name="com.example.fragmentosdinamicos.Fragment2"
+        android:id="@+id/fragmentShow2"
+        android:layout_width="200dp"
+        android:layout_height="200dp">
+    </fragment>
+    </TableRow>
+    </TableLayout>
+</LinearLayout>
