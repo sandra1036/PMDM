@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -18,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private View frag;
     private Button but;
     private CheckBox ck;
-    int [] dibujos={R.drawable.capitanamarvel,R.drawable.spiderman,R.drawable.dr,R.drawable.ironman};
-    int stak;
+    private int [] dibujos={R.drawable.capitanamarvel,R.drawable.spiderman,R.drawable.dr,R.drawable.ironman};
+    private int stak;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
         but=(Button)findViewById(R.id.buttonView);
 
+
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addFragment();
             }
         });
-
-
         ck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(savedInstanceState==null){//esto hace se apilen los fragmentos uno encima de otro y para saber la posicion
-            Fragment miFragment=MyFragment.newInstance(dibujos[0]);
+            Fragment miFragment=MyFragment.newInstance(dibujos[0],stak);
             FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.miFrg,miFragment);
             fragmentTransaction.commit();
@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
     public void addFragment(){
         Fragment fragment;
         Random random=new Random();
-        fragment=MyFragment.newInstance(dibujos[random.nextInt(dibujos.length)]);
+        stak++;
+        fragment=MyFragment.newInstance(dibujos[random.nextInt(dibujos.length)],stak);
         FragmentTransaction tran=getFragmentManager().beginTransaction();
         tran.replace(R.id.miFrg,fragment);
         tran.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -78,7 +79,5 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt("position",stak);
     }
 
-
-
-
+    
 }
