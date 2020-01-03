@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragmentper">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView android:id="@+id/nombre"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView android:id="@+id/apellidos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView android:id="@+id/edad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView android:id="@+id/detalles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <ImageView android:id="@+id/foto"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+
+</FrameLayout>
