@@ -1,7 +1,5 @@
 package com.example.fragmentosdinamicos;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import android.app.Fragment;
@@ -69,14 +67,14 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v= inflater.inflate(R.layout.fragment_fragment1, container, false);
-        TextView texto;
-        texto=(TextView)v.findViewById(R.id.texto);
-        texto.setText("Fragmento num: ");
-        ImageView foto=(ImageView)v.findViewById(R.id.foto);
-        foto.setImageResource(mParam2);
-
-        return v;
+//        View v= inflater.inflate(R.layout.fragment_fragment1, container, false);
+//        TextView texto;
+//        texto=(TextView)v.findViewById(R.id.t);
+//        texto.setText("Fragmento num: ");
+//        ImageView foto=(ImageView)v.findViewById(R.id.foto);
+//        foto.setImageResource(mParam2);
+//        return v;
+        return null;
     }
 
 

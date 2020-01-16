@@ -1,11 +1,7 @@
 package com.example.fragmentosdinamicos;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-
 import android.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,61 +11,47 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Fragment1.OnFragmentInteractionListener} interface
+ * {@link Fragment1.InstantiationException} interface
  * to handle interaction events.
  * Use the {@link Fragment1#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class Fragment1 extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-
-
-
-    public Fragment1() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     *
-     * @return A new instance of fragment Fragment1.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Fragment1 newInstance(String param1) {
-        Fragment1 fragment = new Fragment1();
+    int mNum;
+    static Fragment1 newInstance(int number) {
+        Fragment1 f = new Fragment1();
+        // Mantenemos el nÃºmero para usarlo en cualquier momento.
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        fragment.setArguments(args);
-        return fragment;
+        args.putInt("num", number);
+        f.setArguments(args);
+        return f;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-        }
+        // obtenemos el nÃºmero que se habia pasado como argumento en
+        // la creaciÃ³n de la instancia
+        mNum = getArguments().getInt("num");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        View v  = null;
+        if (mNum % 2 == 0){
+            v = inflater.inflate(R.layout.fragment_fragment1, container, false);
+            View tv = v.findViewById(R.id.text);
+        }
+        else{
+            v = inflater.inflate(R.layout.fragment_fragment2 , container, false);
+            View tv = v.findViewById(R.id.text2);
+        }
 
-        View v= inflater.inflate(R.layout.fragment_fragment1, container, false);
-        TextView texto;
-        texto=(TextView)v.findViewById(R.id.texto);
-        texto.setText("Fragmento num: ");
+
+        ((TextView)tv).setText("Fragmento nÃºmero #" + mNum);
         return v;
     }
-
-
 }
+
+
