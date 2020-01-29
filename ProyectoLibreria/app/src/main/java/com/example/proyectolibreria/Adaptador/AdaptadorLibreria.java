@@ -12,33 +12,39 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.example.proyectolibreria.Activitys.Libros;
+import com.example.proyectolibreria.Activitys.Principal;
 import com.example.proyectolibreria.R;
+
+
 
 public class AdaptadorLibreria extends ArrayAdapter<Libros> {
     Activity activity;
     public AdaptadorLibreria(Activity activity) {
-        super(activity, R.layout.desplegar);
+        super(activity, R.layout.desplegar,Principal.libros);
         this.activity=activity;
-    }
-    public View getDropDownView(int position, View view, ViewGroup viewGroup){
-        View vista=getView(position,view,viewGroup);
-        return  vista;
     }
     public View getView(int position, View view,ViewGroup viewGroup){
         LayoutInflater inflater=activity.getLayoutInflater();
         View item=inflater.inflate(R.layout.desplegar,null);
 
-        ImageView foto=(TextView)item.findViewById(R.id.foto);
-        foto.setImageResource(R.dra);
+        ImageView foto=(ImageView) item.findViewById(R.id.foto);
+        foto.setImageResource(Principal.libros[position].getFoto());
 
-        TextView textViewMar=(TextView)item.findViewById(R.id.marca);
-        textViewMar.setText(MainActivity.seleccionado[position].getMarca());
+        TextView textViewtitulo=(TextView)item.findViewById(R.id.nombre);
+        textViewtitulo.setText(Principal.libros[position].getTitulo());
 
-        TextView textViewPre=(TextView)item.findViewById(R.id.precio);
-        textViewPre.setText(MainActivity.seleccionado[position].getPrecio());
+        TextView textViewautor=(TextView)item.findViewById(R.id.autor);
+        textViewautor.setText(Principal.libros[position].getAutor());
 
-        ImageView imageView=(ImageView)item.findViewById(R.id.foto);
-        imageView.setImageResource(MainActivity.seleccionado[position].getImagen());
+        TextView textViewfecha=(TextView)item.findViewById(R.id.fecha);
+        textViewautor.setText(Principal.libros[position].getFecha());
+
+        TextView textViewsinopsis=(TextView)item.findViewById(R.id.sinopis);
+        textViewsinopsis.setText(Principal.libros[position].getSinopsis());
+
+        TextView textViewgenero=(TextView)item.findViewById(R.id.genero);
+        textViewgenero.setText(Principal.libros[position].getGenero());
+
         return item;
     }
 }

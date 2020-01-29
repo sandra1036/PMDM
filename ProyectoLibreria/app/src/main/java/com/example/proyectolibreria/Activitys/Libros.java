@@ -3,16 +3,28 @@ package com.example.proyectolibreria.Activitys;
 import java.io.Serializable;
 
 public class Libros implements Serializable {
-    private String titulo,autor,fecha,sinopsis;
+    private String titulo,autor,fecha,sinopsis,genero;
     private  int foto;
 
+//
+//   public Libros(int foto,String titulo,String autor,String fecha,String sinopsis,String genero){
+//        this.foto=foto;
+//        this.titulo=titulo;
+//        this.autor=autor;
+//        this.fecha=fecha;
+//        this.sinopsis=sinopsis;
+//        this.genero=genero;
+//    }
 
-   public Libros(int foto,String titulo,String autor,String fecha,String sinopsis){
+
+
+    public Libros(int foto,String titulo,String autor,String fecha,String genero){
         this.foto=foto;
         this.titulo=titulo;
         this.autor=autor;
         this.fecha=fecha;
-        this.sinopsis=sinopsis;
+        this.genero=genero;
+
     }
 
     public String getTitulo() {
@@ -45,6 +57,13 @@ public class Libros implements Serializable {
 
     public void setSinopsis(String sinopsis) {
         this.sinopsis = sinopsis;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public int getFoto() {

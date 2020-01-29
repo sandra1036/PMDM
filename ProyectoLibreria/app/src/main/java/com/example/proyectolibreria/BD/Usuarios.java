@@ -1,4 +1,4 @@
 package com.example.proyectolibreria.BD;
 
-public class Clientes {
+public class Usuarios {
 }

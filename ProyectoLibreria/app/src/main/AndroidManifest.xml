@@ -17,7 +17,7 @@
             android:name=".Menu.menulateral"
             android:label="@string/title_activity_menulateral"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activitys.principal" />
+        <activity android:name=".Activitys.Principal" />
         <activity android:name=".Activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
