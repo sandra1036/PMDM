@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,17 +14,26 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.proyectolibreria.Fragmentos.FragmentMenuAutor;
 import com.example.proyectolibreria.Fragmentos.FragmentMenuLibro;
 import com.example.proyectolibreria.R;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
+
+    private EditText editusuario,editpassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        editusuario=(EditText)findViewById(R.id.entryusuario);
+        editpassword=(EditText)findViewById(R.id.entrypassword);
 
         Button button=(Button)findViewById(R.id.buttonCambiar);
 
