@@ -28,3 +28,4 @@
         android:fadingEdge="horizontal"
         android:gravity="right" />
 </RelativeLayout>
+ 
