@@ -1,4 +1,9 @@
 package com.example.proyectolibreria.BD;
 
-public class Usuarios {
+public class Usuario {
+
+
+
+
+
 }

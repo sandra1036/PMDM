@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:text="Aceptar"
         android:layout_marginTop="10dp"/>
-        
+
     </TableRow>
 
     </TableLayout>
