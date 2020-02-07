@@ -15,9 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.proyectolibreria.Fragmentos.FragmentMenuAutor;
-import com.example.proyectolibreria.Fragmentos.FragmentMenuLibro;
 import com.example.proyectolibreria.R;
 
 import java.util.Map;

@@ -19,7 +19,7 @@ public class DataBaseHelper {
     private static final String USUARIOS_TELEFONO="telefono";
 
     public static final String DATABASE_CREATE_USUARIO= "create table"+DATABASE_TABLE_USUARIOS +"("
-             +USUARIOS_ID+"integer primary key,"
+             +USUARIOS_ID+"integer primary key autoincrement,"
              +USUARIOS_NOMBRE+ "text not null,"
              +USUARIOS_EMAIL+"text not null,"
              +USUARIOS_TELEFONO+"text not null,";

@@ -2,6 +2,7 @@ package com.example.proyectolibreria.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,6 +32,17 @@ public class LIbroCompleto extends AppCompatActivity {
         RadioButton re=(RadioButton)findViewById(R.id.Ebook);
         RadioButton rf=(RadioButton)findViewById(R.id.Fisico);
         Button siguiente=(Button)findViewById(R.id.siguiente);
+
+        Bundle bundle=getIntent().getExtras();
+        Libros libros=(Libros)bundle.getSerializable("clave");
+
+        genero.setText("Genero: "+libros.getGenero());
+        imagen.setImageResource(libros.getFoto());
+        nombre.setText("Titulo: "+libros.getTitulo());
+        autor.setText("Autor: "+libros.getAutor());
+        fecha.setText("Fecha: "+libros.getFecha());
+        sinopsis.setText("Sinopsis: "+libros.getSinopsis());
+
 
     }
 }

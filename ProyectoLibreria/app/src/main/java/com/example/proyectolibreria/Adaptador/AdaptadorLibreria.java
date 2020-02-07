@@ -39,9 +39,6 @@ public class AdaptadorLibreria extends ArrayAdapter<Libros> {
         TextView textViewfecha=(TextView)item.findViewById(R.id.fecha);
         textViewautor.setText(Principal.libros[position].getFecha());
 
-        TextView textViewsinopsis=(TextView)item.findViewById(R.id.sinopis);
-        textViewsinopsis.setText(Principal.libros[position].getSinopsis());
-
         TextView textViewgenero=(TextView)item.findViewById(R.id.genero);
         textViewgenero.setText(Principal.libros[position].getGenero());
 
