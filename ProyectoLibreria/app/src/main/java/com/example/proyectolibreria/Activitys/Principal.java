@@ -23,14 +23,14 @@ public class Principal extends AppCompatActivity {
                     "J.K.Rowling","1997","Harry Potter crece en la casa de sus tíos, los Dursley, quienes le ocultan su verdadera historia familiar; " +
                     "al cumplir Harry once años de edad, empiezan a llegarle cartas de remitente desconocido, que van aumentando en número a medida que sus tíos no dejan que" +
                     " las abra. Las mismas traen la noticia de que el niño ha sido admitido en el Colegio Hogwarts de Magia y Hechicería, ya que, al igual que sus padres," +
-                    " tiene poderes mágicos.","Literatura fantástica, aventuras, literatura juvenil"),
+                    " tiene poderes mágicos.","Literatura fantástica, aventuras, literatura juvenil","20"),
 
 
             new Libros(R.drawable.cazadoressombras,"Cazadores de Sombras" ,"Cassandra Clare","2007",
                     "En el Pandemonium, la discoteca de moda de Nueva York, Clary sigue a un atractivo chico de pelo azul hasta que presencia su muerte a manos de tres jóvenes" +
                             " cubiertos de extraños tatuajes. Desde esa noche, su destino se une al de esos tres cazadores de sombras," +
                             " guerreros dedicados a liberar a la tierra de demonios y, sobre todo, al de Jace, un chico con aspecto de ángel y tendencia a actuar como un idiota...",
-                    "Fantasía"),
+                    "Fantasía","20"),
 
 
     };
