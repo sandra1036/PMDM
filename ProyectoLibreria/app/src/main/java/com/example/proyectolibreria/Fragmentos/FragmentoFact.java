@@ -9,8 +9,12 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.proyectolibreria.R;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +34,7 @@ public class FragmentoFact extends Fragment {
 
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
+    private int mParam1;
     private String mParam2;
     private String mParam3;
     private String mParam4;
@@ -52,10 +56,10 @@ public class FragmentoFact extends Fragment {
      * @return A new instance of fragment FragmentoFact.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentoFact newInstance(String param1, String param2,String param3,String param4) {
+    public static FragmentoFact newInstance(int param1, String param2,String param3,String param4) {
         FragmentoFact fragment = new FragmentoFact();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
+        args.putInt(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         args.putString(ARG_PARAM3,param3);
         args.putString(ARG_PARAM4,param4);
@@ -67,16 +71,31 @@ public class FragmentoFact extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam1 = getArguments().getInt(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+            mParam3=getArguments().getString(ARG_PARAM3);
+            mParam4=getArguments().getString(ARG_PARAM4);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragmento_fact, container, false);
+        View v=inflater.inflate(R.layout.fragment_fragmento_fact, container, false);
+
+        ImageView imageView=(ImageView)v.findViewById(R.id.imagen);
+        imageView.setImageResource(mParam1);
+
+        TextView titulo=(TextView)v.findViewById(R.id.LibroFact);
+        titulo.setText("Titulo: "+String.valueOf(mParam2));
+
+        TextView precio=(TextView)v.findViewById(R.id.precio);
+        precio.setText("Precio"+String.valueOf(mParam3));
+
+        TextView preciofis=(TextView)v.findViewById(R.id.PreFisico);
+        preciofis.setText("Precio Fisico"+String.valueOf(mParam4));
+
+        return v;
     }
 
     public interface OnFragmentInteractionListener {

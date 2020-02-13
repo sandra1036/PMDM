@@ -70,11 +70,13 @@ public class LIbroCompleto extends AppCompatActivity {
                 System.out.println(precio);
             }
         });
+
+        //El boton pasa a la otra pantalla y te dice el precio
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(LIbroCompleto.this,Factura.class);
-
+                startActivity(intent);
             }
         });
 
