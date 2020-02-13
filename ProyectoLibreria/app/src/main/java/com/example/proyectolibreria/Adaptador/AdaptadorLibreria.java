@@ -31,16 +31,16 @@ public class AdaptadorLibreria extends ArrayAdapter<Libros> {
         foto.setImageResource(Principal.libros[position].getFoto());
 
         TextView textViewtitulo=(TextView)item.findViewById(R.id.nombre);
-        textViewtitulo.setText(Principal.libros[position].getTitulo());
+        textViewtitulo.setText("Titulo: "+Principal.libros[position].getTitulo());
 
         TextView textViewautor=(TextView)item.findViewById(R.id.autor);
-        textViewautor.setText(Principal.libros[position].getAutor());
+        textViewautor.setText("Autor: "+Principal.libros[position].getAutor());
 
         TextView textViewfecha=(TextView)item.findViewById(R.id.fecha);
-        textViewautor.setText(Principal.libros[position].getFecha());
+        textViewfecha.setText("Fecha: "+Principal.libros[position].getFecha());
 
         TextView textViewgenero=(TextView)item.findViewById(R.id.genero);
-        textViewgenero.setText(Principal.libros[position].getGenero());
+        textViewgenero.setText("Genero: "+Principal.libros[position].getGenero());
 
         return item;
     }

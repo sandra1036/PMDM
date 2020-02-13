@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.icu.text.MessagePattern;
 import android.os.Bundle;
 import android.text.style.StyleSpan;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
@@ -34,7 +35,7 @@ public class LIbroCompleto extends AppCompatActivity {
         TextView genero=(TextView)findViewById(R.id.genero);
         final TextView precio=(TextView)findViewById(R.id.precio);
 
-        RadioGroup rg=(RadioGroup)findViewById(R.id.radiogrup);
+        final RadioGroup rg=(RadioGroup)findViewById(R.id.radiogrup);
         final RadioButton re=(RadioButton)findViewById(R.id.Ebook);
         final RadioButton rf=(RadioButton)findViewById(R.id.Fisico);
         Button siguiente=(Button)findViewById(R.id.siguiente);
@@ -57,15 +58,23 @@ public class LIbroCompleto extends AppCompatActivity {
 
         //Metodos del radio Grup
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            int precio=20;
+
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int precio=20;
+                if(rg.getCheckedRadioButtonId()==R.id.Fisico){
 
-                if(rf.isChecked()==true){
                     precio=precio+5;
 
-
                 }
+                System.out.println(precio);
+            }
+        });
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LIbroCompleto.this,Factura.class);
+
             }
         });
 
