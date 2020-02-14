@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.icu.text.MessagePattern;
+import android.media.audiofx.DynamicsProcessing;
 import android.os.Bundle;
 import android.text.style.StyleSpan;
 import android.view.View;
@@ -43,7 +44,7 @@ public class LIbroCompleto extends AppCompatActivity {
 
         //Obtengo los datos del objeto de los libros
         Bundle bundle=getIntent().getExtras();
-        Libros libros=(Libros)bundle.getSerializable("clave");
+        final Libros libros=(Libros)bundle.getSerializable("clave");
 
 
         //Se los asigno
@@ -77,6 +78,9 @@ public class LIbroCompleto extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(LIbroCompleto.this,Factura.class);
                 startActivity(intent);
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("clave",libros);
+                intent.putExtras(bundle);
             }
         });
 

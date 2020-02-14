@@ -1,5 +1,6 @@
 package com.example.proyectolibreria.BD;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -61,6 +62,14 @@ public class DataBaseHelper {
         dataBaseHelper.close();
     }
 
+    public long insertItemUsuario(String nombre,String email,String telefono,String libroid){
+        ContentValues  contentValues=new ContentValues();
+        contentValues.put(USUARIOS_NOMBRE,nombre);
+        contentValues.put(USUARIOS_EMAIL,email);
+        contentValues.put(USUARIOS_TELEFONO,telefono);
+        contentValues.put(LIBRO_ID,libroid);
+        return liteDatabase.insert(DATABASE_TABLE_USUARIOS,null,contentValues);
+    }
 
 
 

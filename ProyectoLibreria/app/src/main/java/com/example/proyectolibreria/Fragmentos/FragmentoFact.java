@@ -31,13 +31,14 @@ public class FragmentoFact extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private static final String ARG_PARAM3 = "param3";
     private static final String ARG_PARAM4 = "param4";
-
+    private static final String ARG_PARAM5 = "param5";
 
     // TODO: Rename and change types of parameters
     private int mParam1;
     private String mParam2;
     private String mParam3;
     private String mParam4;
+    private String mParam5;
 
     private OnFragmentInteractionListener mListener;
 
@@ -53,16 +54,18 @@ public class FragmentoFact extends Fragment {
      * @param param2 Titulo Libro.
      * @param param3 Precio Libro.
      * @param param4 Precio Por ser Fisico.
+     * @param param5 Total.
      * @return A new instance of fragment FragmentoFact.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentoFact newInstance(int param1, String param2,String param3,String param4) {
+    public static FragmentoFact newInstance(int param1, String param2,String param3,String param4,String param5) {
         FragmentoFact fragment = new FragmentoFact();
         Bundle args = new Bundle();
         args.putInt(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         args.putString(ARG_PARAM3,param3);
         args.putString(ARG_PARAM4,param4);
+        args.putString(ARG_PARAM5,param5);
         fragment.setArguments(args);
         return fragment;
     }
@@ -75,6 +78,7 @@ public class FragmentoFact extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
             mParam3=getArguments().getString(ARG_PARAM3);
             mParam4=getArguments().getString(ARG_PARAM4);
+            mParam5=getArguments().getString(ARG_PARAM5);
         }
     }
 
@@ -89,11 +93,14 @@ public class FragmentoFact extends Fragment {
         TextView titulo=(TextView)v.findViewById(R.id.LibroFact);
         titulo.setText("Titulo: "+String.valueOf(mParam2));
 
-        TextView precio=(TextView)v.findViewById(R.id.precio);
-        precio.setText("Precio"+String.valueOf(mParam3));
+        TextView precio=(TextView)v.findViewById(R.id.Precio);
+        precio.setText("Precio: "+String.valueOf(mParam3));
 
         TextView preciofis=(TextView)v.findViewById(R.id.PreFisico);
-        preciofis.setText("Precio Fisico"+String.valueOf(mParam4));
+        preciofis.setText("Precio Fisico: "+String.valueOf(mParam4));
+
+        TextView total=(TextView)v.findViewById(R.id.Total);
+        total.setText("Total: "+String.valueOf(mParam5));
 
         return v;
     }
