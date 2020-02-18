@@ -61,19 +61,32 @@ public class DataBaseHelper {
         dataBaseHelper.close();
     }
 
+    public Cursor getItemsLibros(){
+        return liteDatabase.query(DATABASE_TABLE_LIBROS,new String[]{LIBROS_ID,LIBROS_TITULO,LIBROS_ANYO,LIBROS_SINOPSIS,LIBROS_AUTOR,LIBROS_GENERO},
+                null,null,null,null,null,LIBROS_TITULO);
+    }
+    public long insertItemLibros(String titulo,String anyo,String sinopsis,String autor,String genero){
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(LIBROS_TITULO ,titulo);
+        contentValues.put(LIBROS_ANYO,anyo);
+        contentValues.put(LIBROS_SINOPSIS,sinopsis);
+        contentValues.put(LIBROS_AUTOR,autor);
+        contentValues.put(LIBROS_GENERO,genero);
+        return liteDatabase.insert(DATABASE_TABLE_LIBROS,null,contentValues);
+    }
+
     public Cursor getItemsUsuarios(){
         return liteDatabase.query(DATABASE_TABLE_USUARIOS,new String[] {USUARIOS_ID, USUARIOS_NOMBRE, USUARIOS_Contrasenya, LIBRO_ID},
                 null,null,null,null,null,USUARIOS_NOMBRE);
     }
 
-    public long insertItemUsuario(String nombre,String email,String telefono,String libroid){
+    public long insertItemUsuario(String nombre,String contrasenya,String libroid){
         ContentValues  contentValues=new ContentValues();
         contentValues.put(USUARIOS_NOMBRE,nombre);
-        contentValues.put(USUARIOS_Contrasenya,email);
+        contentValues.put(USUARIOS_Contrasenya,contrasenya);
         contentValues.put(LIBRO_ID,libroid);
         return liteDatabase.insert(DATABASE_TABLE_USUARIOS,null,contentValues);
     }
-
 
 
 

@@ -9,11 +9,13 @@ import androidx.fragment.app.FragmentManager;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -26,7 +28,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editusuario,editpassword;
+    public EditText editusuario,editpassword;
     public static DataBaseHelper dataBaseHelper=null;
     public Integer mRowId=null;
     @Override
@@ -77,7 +79,25 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void fillData(){
+    public void fullDataLibros(){
+        dataBaseHelper.open();
+        Cursor itemcursor=dataBaseHelper.getItemsLibros();
+        Libros item=null;
+       // ArrayList<LIbroCompleto>list=new ArrayAdapter<LIbroCompleto>();
+        while(itemcursor.moveToNext()){
+            int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ID));
+            String titulo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_TITULO));
+            String anyo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ANYO));
+            String sinopis=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_SINOPSIS));
+            String autor=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_AUTOR));
+            String genero=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_GENERO));
+          //  list.add(item);
+        }
+    }
+
+
+
+    public void fillDataUsuarios(){
         dataBaseHelper.open();
         Cursor itemcursor=dataBaseHelper.getItemsUsuarios();
         Usuarios item=null;
@@ -94,6 +114,20 @@ public class MainActivity extends AppCompatActivity {
         //cerramos la base de datos
         itemcursor.close();
         dataBaseHelper.close();
+
+    }
+
+    protected void saveData(){
+        String itemusuario=editusuario.getText().toString();
+        String itempassword=editpassword.getText().toString();
+
+        try{
+            dataBaseHelper.open();
+            //dataBaseHelper.insertItemUsuario(itemusuario,itempassword);
+            dataBaseHelper.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
 
     }
 
