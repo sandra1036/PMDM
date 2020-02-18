@@ -34,7 +34,8 @@ public class LIbroCompleto extends AppCompatActivity {
         ImageView imagen=(ImageView)findViewById(R.id.foto);
         TextView autor=(TextView)findViewById(R.id.autor);
         TextView genero=(TextView)findViewById(R.id.genero);
-        final TextView precio=(TextView)findViewById(R.id.precio);
+        final  TextView precioi=(TextView)findViewById(R.id.precio);
+        final TextView total=(TextView)findViewById(R.id.Total);
 
         final RadioGroup rg=(RadioGroup)findViewById(R.id.radiogrup);
         final RadioButton re=(RadioButton)findViewById(R.id.Ebook);
@@ -54,33 +55,33 @@ public class LIbroCompleto extends AppCompatActivity {
         autor.setText("Autor: "+libros.getAutor());
         fecha.setText("Fecha: "+libros.getFecha());
         sinopsis.setText("Sinopsis: "+libros.getSinopsis());
-        precio.setText("Precio: "+libros.getPrecio());
+        precioi.setText("Precio: "+libros.getPrecio());
+            //Metodos del radio Grup
+            rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    int precio = 20;
+                    if (rg.getCheckedRadioButtonId() == R.id.Fisico) {
 
-        //Metodos del radio Grup
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                int precio=20;
-                if(rg.getCheckedRadioButtonId()==R.id.Fisico){
-
-                    precio=precio+5;
+                        precio = precio + 5;
+                        libros.setTotal(String.valueOf(precio));
+                    }else {
+                        libros.setTotal(libros.getPrecio());
+                    }
 
                 }
-                System.out.println(precio);
-            }
-        });
+            });
 
         //El boton pasa a la otra pantalla y te dice el precio
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(LIbroCompleto.this,Factura.class);
-                startActivity(intent);
                 Bundle bundle=new Bundle();
                 bundle.putSerializable("clave",libros);
                 intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
 

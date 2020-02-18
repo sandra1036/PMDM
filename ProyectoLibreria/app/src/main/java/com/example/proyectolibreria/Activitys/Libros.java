@@ -3,7 +3,7 @@ package com.example.proyectolibreria.Activitys;
 import java.io.Serializable;
 
 public class Libros implements Serializable {
-    private String titulo,autor,fecha,sinopsis,genero,precio;
+    private String titulo,autor,fecha,sinopsis,genero,precio,total;
     private  int foto;
 
 
@@ -81,5 +81,14 @@ public class Libros implements Serializable {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
     }
 }

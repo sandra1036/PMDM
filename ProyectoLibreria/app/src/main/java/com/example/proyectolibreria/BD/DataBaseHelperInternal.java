@@ -48,6 +48,7 @@ class DataBaseHelperInternallibros extends SQLiteOpenHelper {
     private  void createtables(SQLiteDatabase db){
         db.execSQL(DataBaseHelper.DATABASE_CREATE_LIBROS);
     }
+
     private void deletetables(SQLiteDatabase db){
         db.execSQL("DROP TABLE EXISTS"+DataBaseHelper.DATABASE_TABLE_LIBROS);
     }

@@ -29,7 +29,7 @@ public class DataBaseHelper {
             +LIBROS_ANYO+"text not null,"
             +LIBROS_SINOPSIS+"text not null,"
             +LIBROS_AUTOR+"text not null,"
-            +LIBROS_GENERO+"text not null,";
+            +LIBROS_GENERO+"text not null,)";
 
 
     public static final String DATABASE_TABLE_USUARIOS="Usuarios";
@@ -44,6 +44,7 @@ public class DataBaseHelper {
              +USUARIOS_NOMBRE+ "text not null,"
              +USUARIOS_EMAIL+"text not null,"
              +USUARIOS_TELEFONO+"text not null,"
+             +LIBRO_ID+"text not null,"
              +"FOREIGN KEY ("+LIBRO_ID+") REFERENCES "+DATABASE_TABLE_LIBROS+" ("+LIBROS_ID+")";
 
 
