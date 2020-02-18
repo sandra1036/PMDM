@@ -41,7 +41,15 @@ public class MainActivity extends AppCompatActivity {
         dataBaseHelper=new DataBaseHelper(this);
         mRowId=(savedInstanceState==null)?null:
                 (Integer)savedInstanceState.getSerializable(DataBaseHelper.USUARIOS_ID);
-
+        if (DataBaseHelper.liteDatabase != null) {        //Si correcta la base de datos
+            for (int cont = 1; cont <= 3; cont++) {  //Introducimos 3 clientes de ejemplo
+                int codigo = cont;
+                String nombre = "Nombre" + cont;
+                String contrasenya = cont + "XXXXXXX";
+                DataBaseHelper.liteDatabase.execSQL("INSERT INTO Usuarios (nombre, contrasenya) " +
+                        "VALUES (" + nombre + ", '" + contrasenya + "')");
+            }
+        }
 
         if (DataBaseHelper.liteDatabase != null) {
             System.out.println("No conecta con la base de datos");
@@ -78,8 +86,7 @@ public class MainActivity extends AppCompatActivity {
         while(itemcursor.moveToNext()){
             int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_ID));
             String nombre=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_NOMBRE));
-            String email=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_EMAIL));
-            String telefono=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_TELEFONO));
+            String contrasenya=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_Contrasenya));
             int idlib=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.LIBRO_ID));
             item=new Usuarios();
             result.add(item);

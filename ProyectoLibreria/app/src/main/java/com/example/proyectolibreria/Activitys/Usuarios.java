@@ -1,7 +1,7 @@
 package com.example.proyectolibreria.Activitys;
 
 public class Usuarios {
-    private String nombre,email,telefono;
+    private String nombre,contrasenya;
 
 
 
@@ -9,10 +9,9 @@ public class Usuarios {
 
     }
 
-    public Usuarios(String nombre,String email,String telefono){
+    public Usuarios(String nombre,String contrasenya){
         this.nombre=nombre;
-        this.email=email;
-        this.telefono=telefono;
+        this.contrasenya=contrasenya;
     }
 
     public String getNombre() {
@@ -23,19 +22,11 @@ public class Usuarios {
         this.nombre = nombre;
     }
 
-    public String getEmail() {
-        return email;
+    public String getContrasenya() {
+        return contrasenya;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setContrasenya(String contrasenya) {
+        this.contrasenya = contrasenya;
     }
 }

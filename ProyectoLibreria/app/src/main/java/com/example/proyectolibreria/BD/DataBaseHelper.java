@@ -35,15 +35,13 @@ public class DataBaseHelper {
     public static final String DATABASE_TABLE_USUARIOS="Usuarios";
     public static final String USUARIOS_ID="id";
     public static final String USUARIOS_NOMBRE="nombre";
-    public static final String USUARIOS_EMAIL="email";
-    public static final String USUARIOS_TELEFONO="telefono";
+    public static final String USUARIOS_Contrasenya="contrasenya";
     public static final String LIBRO_ID="libro_id";
 
     public static final String DATABASE_CREATE_USUARIO= "create table"+DATABASE_TABLE_USUARIOS +"("
              +USUARIOS_ID+"integer primary key autoincrement,"
              +USUARIOS_NOMBRE+ "text not null,"
-             +USUARIOS_EMAIL+"text not null,"
-             +USUARIOS_TELEFONO+"text not null,"
+             +USUARIOS_Contrasenya+"text not null,"
              +LIBRO_ID+"text not null,"
              +"FOREIGN KEY ("+LIBRO_ID+") REFERENCES "+DATABASE_TABLE_LIBROS+" ("+LIBROS_ID+")";
 
@@ -64,15 +62,14 @@ public class DataBaseHelper {
     }
 
     public Cursor getItemsUsuarios(){
-        return liteDatabase.query(DATABASE_TABLE_USUARIOS,new String[] {USUARIOS_ID, USUARIOS_NOMBRE, USUARIOS_EMAIL, USUARIOS_TELEFONO, LIBRO_ID},
+        return liteDatabase.query(DATABASE_TABLE_USUARIOS,new String[] {USUARIOS_ID, USUARIOS_NOMBRE, USUARIOS_Contrasenya, LIBRO_ID},
                 null,null,null,null,null,USUARIOS_NOMBRE);
     }
 
     public long insertItemUsuario(String nombre,String email,String telefono,String libroid){
         ContentValues  contentValues=new ContentValues();
         contentValues.put(USUARIOS_NOMBRE,nombre);
-        contentValues.put(USUARIOS_EMAIL,email);
-        contentValues.put(USUARIOS_TELEFONO,telefono);
+        contentValues.put(USUARIOS_Contrasenya,email);
         contentValues.put(LIBRO_ID,libroid);
         return liteDatabase.insert(DATABASE_TABLE_USUARIOS,null,contentValues);
     }
