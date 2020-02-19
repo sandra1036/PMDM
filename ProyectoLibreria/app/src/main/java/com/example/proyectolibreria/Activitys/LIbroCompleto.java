@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.text.style.StyleSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,7 +34,7 @@ public class LIbroCompleto extends AppCompatActivity {
         TextView fecha=(TextView)findViewById(R.id.fecha);
         TextView sinopsis=(TextView)findViewById(R.id.sinopis);
         ImageView imagen=(ImageView)findViewById(R.id.foto);
-        TextView autor=(TextView)findViewById(R.id.autor);
+        final TextView autor=(TextView)findViewById(R.id.autor);
         TextView genero=(TextView)findViewById(R.id.genero);
         final  TextView precioi=(TextView)findViewById(R.id.precio);
         final TextView total=(TextView)findViewById(R.id.Total);
@@ -41,6 +43,7 @@ public class LIbroCompleto extends AppCompatActivity {
         final RadioButton re=(RadioButton)findViewById(R.id.Ebook);
         final RadioButton rf=(RadioButton)findViewById(R.id.Fisico);
         Button siguiente=(Button)findViewById(R.id.siguiente);
+        final CheckBox favoritos=(CheckBox)findViewById(R.id.favoritos);
 
 
         //Obtengo los datos del objeto de los libros
@@ -84,13 +87,23 @@ public class LIbroCompleto extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        favoritos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(favoritos.isChecked()){
 
+                }
+            }
+        });
 
-
-
-
+    }
+    public void Checked(View view){
 
 
 
     }
+
+
+
+
 }
