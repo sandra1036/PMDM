@@ -1,7 +1,8 @@
 package com.example.proyectolibreria.Activitys;
 
 public class Usuarios {
-    private String nombre,contrasenya;
+    public static int id;
+    public static String nombre,contrasenya;
 
 
 

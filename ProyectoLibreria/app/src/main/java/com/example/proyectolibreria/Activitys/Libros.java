@@ -18,15 +18,10 @@ public class Libros implements Serializable {
     }
 
 
-
-    public Libros(int foto,String titulo,String autor,String fecha,String genero){
-        this.foto=foto;
-        this.titulo=titulo;
-        this.autor=autor;
-        this.fecha=fecha;
-        this.genero=genero;
+    public Libros(){
 
     }
+
 
     public String getTitulo() {
         return titulo;
