@@ -70,7 +70,7 @@ public class DataBaseHelper {
     }
 
 
-    public Cursor getItemsUsuarios(){
+    public Cursor  getItemsUsuarios(){
         return liteDatabase.query(DATABASE_TABLE_USUARIOS,new String[] {USUARIOS_ID, USUARIOS_NOMBRE, USUARIOS_Contrasenya},
                 null,null,null,null,USUARIOS_NOMBRE);
     }

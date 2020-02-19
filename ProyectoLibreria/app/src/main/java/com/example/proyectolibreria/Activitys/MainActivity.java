@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         try{
             fillDataUsuarios();
-            System.out.println("hola");
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -54,18 +53,12 @@ public class MainActivity extends AppCompatActivity {
                 (Integer)savedInstanceState.getSerializable(DataBaseHelper.USUARIOS_ID);
 
 
-        if (DataBaseHelper.liteDatabase != null) {
-            System.out.println("No conecta con la base de datos");
-
-        }
-
-
-
 
             button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                saveData();
                 Intent intent = new Intent(MainActivity.this, Principal.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("clave",Principal.libros);
