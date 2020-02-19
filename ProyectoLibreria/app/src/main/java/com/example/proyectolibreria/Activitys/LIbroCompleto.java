@@ -3,6 +3,8 @@ package com.example.proyectolibreria.Activitys;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.graphics.Typeface;
 import android.icu.text.MessagePattern;
 import android.media.audiofx.DynamicsProcessing;
@@ -18,17 +20,22 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.proyectolibreria.BD.DataBaseHelper;
 import com.example.proyectolibreria.R;
 
-
+import java.util.ArrayList;
 
 
 public class LIbroCompleto extends AppCompatActivity {
-
+    public  DataBaseHelper dataBaseHelper=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_libro_completo);
+
+        dataBaseHelper=new DataBaseHelper(this);
+        dataBaseHelper.open();
+
 
         TextView nombre=(TextView)findViewById(R.id.nombre);
         TextView fecha=(TextView)findViewById(R.id.fecha);
@@ -59,6 +66,8 @@ public class LIbroCompleto extends AppCompatActivity {
         fecha.setText("Fecha: "+libros.getFecha());
         sinopsis.setText("Sinopsis: "+libros.getSinopsis());
         precioi.setText("Precio: "+libros.getPrecio());
+
+
             //Metodos del radio Grup
             rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -87,21 +96,59 @@ public class LIbroCompleto extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         favoritos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(favoritos.isChecked()){
 
+                    saveData();
+
                 }
             }
         });
+        dataBaseHelper.close();
+    }
+
+    public void fullDataLibros(){
+        dataBaseHelper.open();
+        Cursor itemcursor=dataBaseHelper.getItemsLibros();
+        Libros item=null;
+        ArrayList<Libros> list=new ArrayList<Libros>();
+        while(itemcursor.moveToNext()){
+            int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ID));
+            String titulo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_TITULO));
+            String anyo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ANYO));
+            String sinopis=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_SINOPSIS));
+            String autor=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_AUTOR));
+            String genero=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_GENERO));
+            String user=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIO_ID));
+            item.id=id;
+            item.titulo=titulo;
+            item.fecha=anyo;
+            item.sinopsis=sinopis;
+            item.autor=autor;
+            item.genero=genero;
+            item.idusers=user;
+            list.add(item);
+        }
+    }
+    protected void saveData(){
+
+
+        try{
+            dataBaseHelper.open();
+            dataBaseHelper.insertItemLibros(Libros.titulo,Libros.fecha,Libros.sinopsis,Libros.autor,Libros.genero,Usuarios.id);
+            dataBaseHelper.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
 
     }
-    public void Checked(View view){
 
 
 
-    }
+
 
 
 

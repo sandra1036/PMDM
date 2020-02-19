@@ -89,7 +89,7 @@ public class DataBaseHelper {
                 null,null,null,null,null,LIBROS_TITULO);
     }
 
-    public long insertItemLibros(String titulo,String anyo,String sinopsis,String autor,String genero,String user){
+    public long insertItemLibros(String titulo, String anyo, String sinopsis, String autor, String genero, int user){
         ContentValues contentValues=new ContentValues();
         contentValues.put(LIBROS_TITULO ,titulo);
         contentValues.put(LIBROS_ANYO,anyo);

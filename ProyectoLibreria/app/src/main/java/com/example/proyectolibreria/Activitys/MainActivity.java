@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.proyectolibreria.BD.DataBaseHelper;
 import com.example.proyectolibreria.R;
@@ -48,9 +49,6 @@ public class MainActivity extends AppCompatActivity {
         }catch(SQLException e){
             e.printStackTrace();
         }
-
-        mRowId=(savedInstanceState==null)?null:
-                (Integer)savedInstanceState.getSerializable(DataBaseHelper.USUARIOS_ID);
 
 
 
@@ -99,33 +97,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void fullDataLibros(){
-        dataBaseHelper.open();
-        Cursor itemcursor=dataBaseHelper.getItemsLibros();
-        Libros item=null;
-        ArrayList<Libros>list=new ArrayList<Libros>();
-        while(itemcursor.moveToNext()){
-            int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ID));
-            String titulo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_TITULO));
-            String anyo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ANYO));
-            String sinopis=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_SINOPSIS));
-            String autor=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_AUTOR));
-            String genero=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_GENERO));
-            String user=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIO_ID));
-
-            list.add(item);
-        }
-    }
-
-
-
     protected void saveData(){
-        String itemusuario=editusuario.getText().toString();
-        String itempassword=editpassword.getText().toString();
-
         try{
+            String itemusuario=editusuario.getText().toString();
+            String itempassword=editpassword.getText().toString();
             dataBaseHelper.open();
-            dataBaseHelper.insertItemUsuario(itemusuario,itempassword);
+            while (itemusuario !=null && itempassword !=null){
+                dataBaseHelper.insertItemUsuario(itemusuario,itempassword);
+                Toast.makeText(getApplicationContext(),"Inserta",Toast.LENGTH_SHORT);
+
+            }
             dataBaseHelper.close();
         }catch (SQLException e){
             e.printStackTrace();
