@@ -115,7 +115,6 @@ public class LIbroCompleto extends AppCompatActivity {
 
 
 
-
     }
 
 

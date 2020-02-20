@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         dataBaseHelper.open();
         Cursor itemcursor=dataBaseHelper.getItemsUsuarios();
         Usuarios item= null;
-        ArrayList<Usuarios> result=new ArrayList<Usuarios>();
+        final ArrayList<Usuarios> result=new ArrayList<Usuarios>();
 
         while(itemcursor.moveToNext()){
             int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_ID));
