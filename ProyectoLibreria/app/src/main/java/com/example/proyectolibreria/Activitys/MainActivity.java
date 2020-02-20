@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proyectolibreria.BD.DataBaseHelper;
+import com.example.proyectolibreria.BD.DataBaseHelperInternal;
 import com.example.proyectolibreria.R;
 
 import java.lang.reflect.Array;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         editusuario=(EditText)findViewById(R.id.entryusuario);
         editpassword=(EditText)findViewById(R.id.entrypassword);
         Button button=(Button)findViewById(R.id.buttonCambiar);
@@ -44,7 +44,9 @@ public class MainActivity extends AppCompatActivity {
         dataBaseHelper=new DataBaseHelper(this);
 
         try{
+            dataBaseHelper.open();
             fillDataUsuarios();
+            dataBaseHelper.close();
         }catch(SQLException e){
             e.printStackTrace();
         }

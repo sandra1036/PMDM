@@ -22,7 +22,7 @@ public class DataBaseHelperInternal extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    private  void createtables(SQLiteDatabase db){
+    public static   void createtables(SQLiteDatabase db){
         db.execSQL(DataBaseHelper.DATABASE_CREATE_USUARIO);
         db.execSQL(DataBaseHelper.DATABASE_CREATE_LIBROS);
     }
