@@ -3,11 +3,14 @@ package com.example.proyectolibreria.Activitys;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Typeface;
 import android.icu.text.MessagePattern;
 import android.media.audiofx.DynamicsProcessing;
 import android.os.Bundle;
 import android.text.style.StyleSpan;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,9 +22,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectolibreria.BD.DataBaseHelper;
+import com.example.proyectolibreria.BD.DataBaseHelperInternal;
 import com.example.proyectolibreria.R;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class LIbroCompleto extends AppCompatActivity {
@@ -98,7 +103,6 @@ public class LIbroCompleto extends AppCompatActivity {
         dataBaseHelper=new DataBaseHelper(this);
 
         dataBaseHelper.open();
-
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -107,15 +111,40 @@ public class LIbroCompleto extends AppCompatActivity {
                     dataBaseHelper.close();
 
                 }
+
             }
         });
-
-
+//
+//        public void fillDataLibros(){
+//            dataBaseHelper.open();
+//            Cursor itemcursor=dataBaseHelper.getItemsLibros();
+//            Libros item= null;
+//            final ArrayList<Libros> libros=new ArrayList<Libros>();
+//
+//
+//            while(itemcursor.moveToNext()){
+//                int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ID));
+//                String titulo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_TITULO));
+//                String fecha=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ANYO));
+//                String sinopsis=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_SINOPSIS));
+//                String autor=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_AUTOR));
+//                String genero=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_GENERO));
+//                String contrasenya=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_Contrasenya));
+//                item=new Libros();
+//                item.id=id;
+//                item.titulo=titulo;
+//                item.contrasenya=contrasenya;
+//                result.add(item);
+//            }
+//            //cerramos la base de datos
+//            itemcursor.close();
+//            dataBaseHelper.close();
+//
+//        }
 
 
 
 
     }
-
 
 }

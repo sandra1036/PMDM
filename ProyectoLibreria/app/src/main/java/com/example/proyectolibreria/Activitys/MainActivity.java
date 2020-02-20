@@ -109,10 +109,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-
-
-
     //Menu
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();

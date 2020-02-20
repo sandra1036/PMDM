@@ -75,6 +75,12 @@ public class DataBaseHelper {
                 null,null,null,null,USUARIOS_NOMBRE);
     }
 
+
+    public Cursor getItemsLibros(){
+        return liteDatabase.query(DATABASE_TABLE_LIBROS,new String[] {LIBROS_ID, LIBROS_TITULO, LIBROS_ANYO,LIBROS_SINOPSIS,LIBROS_AUTOR,LIBROS_GENERO},
+                null,null,null,null,LIBROS_ID);
+    }
+
     public long insertItemUsuario(String nombre, String contrasenya){
         ContentValues  contentValues=new ContentValues();
         contentValues.put(USUARIOS_NOMBRE,nombre);
