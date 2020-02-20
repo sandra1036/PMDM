@@ -3,8 +3,8 @@ package com.example.proyectolibreria.Activitys;
 import java.io.Serializable;
 
 public class Libros implements Serializable {
-    public static String titulo,autor,fecha,sinopsis,genero,precio,total;
-    public  int foto;
+    private String titulo,autor,fecha,sinopsis,genero,precio,total;
+    private   int foto;
 
 
    public Libros(int foto,String titulo,String autor,String fecha,String sinopsis,String genero,String precio){

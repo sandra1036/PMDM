@@ -94,12 +94,12 @@ public class LIbroCompleto extends AppCompatActivity {
         //me coge el mismo libro por esto
 
 
-
+        dataBaseHelper=new DataBaseHelper(this);
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (checkBox.isChecked()) {
-                    dataBaseHelper.open();
+
                     saveData();
 
                 }
@@ -109,12 +109,11 @@ public class LIbroCompleto extends AppCompatActivity {
     }
 
     protected void saveData() {
-
-
-
-        dataBaseHelper.insertItemLibros(Libros.titulo, Libros.fecha, Libros.sinopsis, Libros.autor, Libros.genero, Usuarios.id);
+        dataBaseHelper.open();
+        dataBaseHelper.insertItemLibros();
         dataBaseHelper.close();
 
 
     }
+
 }
