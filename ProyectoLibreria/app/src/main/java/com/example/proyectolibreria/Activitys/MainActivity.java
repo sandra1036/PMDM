@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.proyectolibreria.BD.DataBaseHelper;
 import com.example.proyectolibreria.R;
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     public EditText editusuario,editpassword;
     public  DataBaseHelper dataBaseHelper=null;
-    public Integer mRowId=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,17 +49,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
             button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 saveData();
-                Intent intent = new Intent(MainActivity.this, Principal.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("clave",Principal.libros);
-                intent.putExtras(bundle);
-                startActivity(intent);
 
             }
         });
@@ -87,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
             item.nombre=nombre;
             item.contrasenya=contrasenya;
             result.add(item);
-            System.out.println("Entro en fillDataUsuarios");
         }
         //cerramos la base de datos
         itemcursor.close();
@@ -98,16 +89,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     protected void saveData(){
+        dataBaseHelper.open();
+        String itemusuario=editusuario.getText().toString();
+        String itempassword=editpassword.getText().toString();
+        if (itemusuario.isEmpty() || itempassword.isEmpty()){
+            return;
+        }
         try{
-            String itemusuario=editusuario.getText().toString();
-            String itempassword=editpassword.getText().toString();
-            dataBaseHelper.open();
-            while (itemusuario !=null && itempassword !=null){
-                dataBaseHelper.insertItemUsuario(itemusuario,itempassword);
-                Toast.makeText(getApplicationContext(),"Inserta",Toast.LENGTH_SHORT);
 
-            }
+            dataBaseHelper.insertItemUsuario(itemusuario,itempassword);
+            Intent intent = new Intent(MainActivity.this, Principal.class);
+            startActivity(intent);
             dataBaseHelper.close();
+
         }catch (SQLException e){
             e.printStackTrace();
         }
