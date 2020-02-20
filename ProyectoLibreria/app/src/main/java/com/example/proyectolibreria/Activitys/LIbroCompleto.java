@@ -87,6 +87,7 @@ public class LIbroCompleto extends AppCompatActivity {
                 bundle.putSerializable("clave", libros);
                 intent.putExtras(bundle);
                 startActivity(intent);
+
             }
         });
 
@@ -102,7 +103,6 @@ public class LIbroCompleto extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (checkBox.isChecked()) {
-
                     dataBaseHelper.insertItemLibros(libros.getTitulo(),libros.getFecha(),libros.getSinopsis(),libros.getAutor(),libros.getGenero(),Usuarios.id);
                     dataBaseHelper.close();
 

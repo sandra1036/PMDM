@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.proyectolibreria.BD.DataBaseHelper;
 import com.example.proyectolibreria.R;
@@ -63,15 +64,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
+   public static final ArrayList<Usuarios> result=new ArrayList<Usuarios>();
     public void fillDataUsuarios(){
         dataBaseHelper.open();
         Cursor itemcursor=dataBaseHelper.getItemsUsuarios();
         Usuarios item= null;
-        final ArrayList<Usuarios> result=new ArrayList<Usuarios>();
+
 
         while(itemcursor.moveToNext()){
             int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_ID));
+
             String nombre=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_NOMBRE));
             String contrasenya=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_Contrasenya));
             item=new Usuarios();
@@ -96,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         try{
-
+            //Toast.makeText(getApplicationContext(),"Usuario:"+Usuarios.id,Toast.LENGTH_SHORT).show();
             dataBaseHelper.insertItemUsuario(itemusuario,itempassword);
             Intent intent = new Intent(MainActivity.this, Principal.class);
             startActivity(intent);

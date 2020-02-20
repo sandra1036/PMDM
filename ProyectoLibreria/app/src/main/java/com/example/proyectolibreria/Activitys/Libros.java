@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Libros implements Serializable {
     private String titulo,autor,fecha,sinopsis,genero,precio,total;
-    private   int foto;
+    private   int foto,iduser;
 
 
    public Libros(int foto,String titulo,String autor,String fecha,String sinopsis,String genero,String precio){
@@ -85,5 +85,14 @@ public class Libros implements Serializable {
 
     public void setTotal(String total) {
         this.total = total;
+    }
+
+
+    public int getIduser() {
+        return iduser;
+    }
+
+    public void setIduser(int iduser) {
+        this.iduser = iduser;
     }
 }

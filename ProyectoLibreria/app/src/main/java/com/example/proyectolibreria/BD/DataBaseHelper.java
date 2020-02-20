@@ -17,15 +17,6 @@ public class DataBaseHelper {
     public static final String DATABASE_NAME= "Dbproyecto";
 
 
-    public static final String DATABASE_TABLE_LIBROS="Libros";
-    public static final String LIBROS_ID="id";
-    public static final String LIBROS_TITULO="titulo";
-    public static final String LIBROS_ANYO="anyos";
-    public static final String LIBROS_SINOPSIS="sinopsis";
-    public static final String LIBROS_AUTOR="autor";
-    public static final String LIBROS_GENERO="genero";
-    public static final String USUARIO_ID="usuario_id";
-
 
 
 
@@ -40,6 +31,15 @@ public class DataBaseHelper {
             +USUARIOS_Contrasenya+" text not null)";
 
 
+    public static final String DATABASE_TABLE_LIBROS="Libros";
+    public static final String LIBROS_ID="id";
+    public static final String LIBROS_TITULO="titulo";
+    public static final String LIBROS_ANYO="anyos";
+    public static final String LIBROS_SINOPSIS="sinopsis";
+    public static final String LIBROS_AUTOR="autor";
+    public static final String LIBROS_GENERO="genero";
+    public static final String USUARIO_ID="usuario_id";
+
 
 
 
@@ -50,8 +50,8 @@ public class DataBaseHelper {
             +LIBROS_SINOPSIS+" text not null,"
             +LIBROS_AUTOR+" text not null,"
             +LIBROS_GENERO+" text not null,"
-            +USUARIO_ID+" text not null,"
-            +"FOREIGN KEY ("+USUARIO_ID+") REFERENCES "+DATABASE_TABLE_LIBROS+" ("+USUARIOS_ID+"))";
+            +USUARIO_ID+" integer not null,"
+            +"FOREIGN KEY ("+USUARIO_ID+") REFERENCES "+DATABASE_TABLE_USUARIOS+" ("+USUARIOS_ID+"))";
 
 
 
@@ -90,7 +90,7 @@ public class DataBaseHelper {
         contentValues.put(LIBROS_SINOPSIS,sinopsis);
         contentValues.put(LIBROS_AUTOR,autor);
         contentValues.put(LIBROS_GENERO,genero);
-        contentValues.put(USUARIO_ID,user);
+        contentValues.put(USUARIO_ID,user+1);
         return liteDatabase.insert(DATABASE_TABLE_LIBROS,null,contentValues);
     }
 

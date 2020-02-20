@@ -15,6 +15,14 @@ public class Usuarios {
         this.contrasenya=contrasenya;
     }
 
+    public static int getId() {
+        return id;
+    }
+
+    public static void setId(int id) {
+        Usuarios.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
