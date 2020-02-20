@@ -90,7 +90,7 @@ public class DataBaseHelper {
         contentValues.put(LIBROS_SINOPSIS,sinopsis);
         contentValues.put(LIBROS_AUTOR,autor);
         contentValues.put(LIBROS_GENERO,genero);
-        contentValues.put(USUARIOS_ID,user);
+        contentValues.put(USUARIO_ID,user);
         return liteDatabase.insert(DATABASE_TABLE_LIBROS,null,contentValues);
     }
 
