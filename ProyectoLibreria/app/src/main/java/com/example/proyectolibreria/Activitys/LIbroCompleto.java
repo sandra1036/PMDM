@@ -97,24 +97,23 @@ public class LIbroCompleto extends AppCompatActivity {
         });
 
 
-        //me coge el mismo libro por esto
 
 
         dataBaseHelper=new DataBaseHelper(this);
-
         dataBaseHelper.open();
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (checkBox.isChecked()) {
                     dataBaseHelper.insertItemLibros(libros.getTitulo(),libros.getFecha(),libros.getSinopsis(),libros.getAutor(),libros.getGenero(),Usuarios.id);
-                    dataBaseHelper.close();
+
 
                 }
 
+                dataBaseHelper.close();
             }
         });
-//
+
 //        public void fillDataLibros(){
 //            dataBaseHelper.open();
 //            Cursor itemcursor=dataBaseHelper.getItemsLibros();
@@ -129,7 +128,7 @@ public class LIbroCompleto extends AppCompatActivity {
 //                String sinopsis=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_SINOPSIS));
 //                String autor=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_AUTOR));
 //                String genero=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_GENERO));
-//                String contrasenya=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIOS_Contrasenya));
+//                String iduser=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIO_ID));
 //                item=new Libros();
 //                item.id=id;
 //                item.titulo=titulo;
@@ -141,9 +140,6 @@ public class LIbroCompleto extends AppCompatActivity {
 //            dataBaseHelper.close();
 //
 //        }
-
-
-
 
     }
 

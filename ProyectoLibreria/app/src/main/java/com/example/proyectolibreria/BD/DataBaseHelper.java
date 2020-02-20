@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.proyectolibreria.Activitys.Libros;
 import com.example.proyectolibreria.Activitys.Usuarios;
 
 public class DataBaseHelper {
@@ -89,16 +90,22 @@ public class DataBaseHelper {
     }
 
 
-    public long insertItemLibros(String titulo, String anyo, String sinopsis, String autor, String genero, int user){
+    public long insertItemLibros(String titulo, String anyo, String sinopsis, String autor, String genero,int U){
         ContentValues contentValues=new ContentValues();
         contentValues.put(LIBROS_TITULO ,titulo);
         contentValues.put(LIBROS_ANYO,anyo);
         contentValues.put(LIBROS_SINOPSIS,sinopsis);
         contentValues.put(LIBROS_AUTOR,autor);
         contentValues.put(LIBROS_GENERO,genero);
-        contentValues.put(USUARIO_ID,user+1);
+        contentValues.put(USUARIO_ID,U);
         return liteDatabase.insert(DATABASE_TABLE_LIBROS,null,contentValues);
     }
+
+    public static void delete(){
+
+       liteDatabase.execSQL("Delete from DATABASE_CREATE_LIBROS where LIBROS_ID=?", new Integer[]{Integer.getInteger(USUARIO_ID)});
+    }
+
 
 
 

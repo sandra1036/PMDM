@@ -15,12 +15,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectolibreria.Adaptador.AdaptadorLibreria;
+import com.example.proyectolibreria.BD.DataBaseHelper;
+import com.example.proyectolibreria.BD.DataBaseHelperInternal;
 import com.example.proyectolibreria.R;
 
 import org.w3c.dom.Text;
 
 public class Principal extends AppCompatActivity {
-
+    public DataBaseHelper dataBaseHelper=null;
     public static Libros[] libros = new Libros[]{
             new Libros(R.drawable.harrypotter_piedrafilosofal, "Harry Potter y la piedra filosofal",
                     "J.K.Rowling", "1997", "Harry Potter crece en la casa de sus tíos, los Dursley, quienes le ocultan su verdadera historia familiar; " +
@@ -60,7 +62,8 @@ public class Principal extends AppCompatActivity {
 
             }
         });
-
+        dataBaseHelper=new DataBaseHelper(this);
+        dataBaseHelper.open();
 
     }
 
@@ -71,10 +74,16 @@ public class Principal extends AppCompatActivity {
         return true;
     }
 
+
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         if (menuItem.getItemId() == R.id.Fav) {
             Intent intent=new Intent(Principal.this,favoritos.class);
             startActivity(intent);
+        }
+        if(menuItem.getItemId()==R.id.borrar){
+            Toast.makeText(getApplicationContext(),"se han borrado las tablas",Toast.LENGTH_SHORT).show();
+            DataBaseHelperInternal.deletetables(DataBaseHelper.liteDatabase);
+            dataBaseHelper.close();
         }
         return super.onOptionsItemSelected(menuItem);
     }

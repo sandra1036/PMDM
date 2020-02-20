@@ -115,5 +115,13 @@ public class MainActivity extends AppCompatActivity {
         menuInflater.inflate(R.menu.menu, menu);
         return true;
     }
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == R.id.OpAcerca) {
+            Intent intent=new Intent(MainActivity.this,Dibujo.class);
+            startActivity(intent);
+    }
+        return super.onOptionsItemSelected(menuItem);
+    }
+
 
 }
