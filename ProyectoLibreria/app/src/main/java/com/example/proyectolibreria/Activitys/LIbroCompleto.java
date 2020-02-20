@@ -95,25 +95,28 @@ public class LIbroCompleto extends AppCompatActivity {
 
 
         dataBaseHelper=new DataBaseHelper(this);
+
+        dataBaseHelper.open();
+
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (checkBox.isChecked()) {
 
-                    saveData();
+                    dataBaseHelper.insertItemLibros(libros.getTitulo(),libros.getFecha(),libros.getSinopsis(),libros.getAutor(),libros.getGenero(),Usuarios.id);
+                    dataBaseHelper.close();
 
                 }
             }
         });
 
-    }
 
-    protected void saveData() {
-        dataBaseHelper.open();
-        dataBaseHelper.insertItemLibros();
-        dataBaseHelper.close();
+
+
+
 
 
     }
+
 
 }
