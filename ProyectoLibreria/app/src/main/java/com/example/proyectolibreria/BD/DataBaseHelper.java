@@ -55,10 +55,10 @@ public class DataBaseHelper {
             +"FOREIGN KEY ("+USUARIO_ID+") REFERENCES "+DATABASE_TABLE_USUARIOS+" ("+USUARIOS_ID+"))";
 
 
-
     public DataBaseHelper(Context context){
         this.context=context;
     }
+
 
     public DataBaseHelper open(){
         dataBaseHelper= new DataBaseHelperInternal(context);

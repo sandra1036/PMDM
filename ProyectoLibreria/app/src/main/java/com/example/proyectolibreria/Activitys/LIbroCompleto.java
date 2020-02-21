@@ -83,6 +83,7 @@ public class LIbroCompleto extends AppCompatActivity {
             }
         });
 
+
         //El boton pasa a la otra pantalla y te dice el precio
         siguiente.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,10 +93,8 @@ public class LIbroCompleto extends AppCompatActivity {
                 bundle.putSerializable("clave", libros);
                 intent.putExtras(bundle);
                 startActivity(intent);
-
             }
         });
-
 
 
 
@@ -111,9 +110,8 @@ public class LIbroCompleto extends AppCompatActivity {
             }
         });
 
-
-
     }
+
 //    int row=0;
 //    protected void deleterow(){
 //        try{
