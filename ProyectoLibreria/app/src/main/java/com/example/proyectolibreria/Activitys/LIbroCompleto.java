@@ -106,41 +106,22 @@ public class LIbroCompleto extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (checkBox.isChecked()) {
                     dataBaseHelper.insertItemLibros(libros.getTitulo(),libros.getFecha(),libros.getSinopsis(),libros.getAutor(),libros.getGenero(),Usuarios.id);
-
-
                 }
-
                 dataBaseHelper.close();
             }
         });
 
-//        public void fillDataLibros(){
-//            dataBaseHelper.open();
-//            Cursor itemcursor=dataBaseHelper.getItemsLibros();
-//            Libros item= null;
-//            final ArrayList<Libros> libros=new ArrayList<Libros>();
-//
-//
-//            while(itemcursor.moveToNext()){
-//                int id=itemcursor.getInt(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ID));
-//                String titulo=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_TITULO));
-//                String fecha=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_ANYO));
-//                String sinopsis=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_SINOPSIS));
-//                String autor=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_AUTOR));
-//                String genero=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.LIBROS_GENERO));
-//                String iduser=itemcursor.getString(itemcursor.getColumnIndex(DataBaseHelper.USUARIO_ID));
-//                item=new Libros();
-//                item.id=id;
-//                item.titulo=titulo;
-//                item.contrasenya=contrasenya;
-//                result.add(item);
-//            }
-//            //cerramos la base de datos
-//            itemcursor.close();
-//            dataBaseHelper.close();
-//
-//        }
+
 
     }
+//    int row=0;
+//    protected void deleterow(){
+//        try{
+//            dataBaseHelper.open();
+//            dataBaseHelper.delete((Libros));
+//        }catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//    }
 
 }

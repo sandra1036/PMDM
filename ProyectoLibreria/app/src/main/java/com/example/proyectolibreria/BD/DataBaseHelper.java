@@ -14,7 +14,7 @@ public class DataBaseHelper {
     private static   DataBaseHelperInternal dataBaseHelper=null;
     public static SQLiteDatabase liteDatabase=null;
     private DataBaseHelperInternal dataBaseHelpelibros=null;
-    public static final int DATABASE_VERSION=3;
+    public static final int DATABASE_VERSION=2;
     public static final String DATABASE_NAME= "Dbproyecto";
 
 
@@ -97,22 +97,13 @@ public class DataBaseHelper {
         contentValues.put(LIBROS_SINOPSIS,sinopsis);
         contentValues.put(LIBROS_AUTOR,autor);
         contentValues.put(LIBROS_GENERO,genero);
-        contentValues.put(USUARIO_ID,U);
+        contentValues.put(USUARIO_ID,U+1);
         return liteDatabase.insert(DATABASE_TABLE_LIBROS,null,contentValues);
     }
 
-    public static void delete(){
-
-       liteDatabase.execSQL("Delete from DATABASE_CREATE_LIBROS where LIBROS_ID=?", new Integer[]{Integer.getInteger(USUARIO_ID)});
+    public int delete(int row){
+        return liteDatabase.delete(DATABASE_TABLE_LIBROS,LIBROS_ID+"=?",new String[]{Integer.toString(row)});
     }
-
-
-
-
-
-
-
-
 
 
 

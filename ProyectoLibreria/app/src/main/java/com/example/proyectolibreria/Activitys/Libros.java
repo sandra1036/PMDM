@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 public class Libros implements Serializable {
     private String titulo,autor,fecha,sinopsis,genero,precio,total;
-    private   int foto,iduser;
+    private int foto,iduser;
+    public static int id;
 
 
    public Libros(int foto,String titulo,String autor,String fecha,String sinopsis,String genero,String precio){

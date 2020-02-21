@@ -62,6 +62,7 @@ public class Principal extends AppCompatActivity {
 
             }
         });
+
         dataBaseHelper=new DataBaseHelper(this);
         dataBaseHelper.open();
 
@@ -76,10 +77,7 @@ public class Principal extends AppCompatActivity {
 
 
     public boolean onOptionsItemSelected(MenuItem menuItem) {
-        if (menuItem.getItemId() == R.id.Fav) {
-            Intent intent=new Intent(Principal.this,favoritos.class);
-            startActivity(intent);
-        }
+
         if(menuItem.getItemId()==R.id.borrar){
             Toast.makeText(getApplicationContext(),"se han borrado las tablas",Toast.LENGTH_SHORT).show();
             DataBaseHelperInternal.deletetables(DataBaseHelper.liteDatabase);
